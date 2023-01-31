@@ -1,0 +1,51 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.StringTokenizer;
+
+public class Main {
+
+	public static void main(String[] args) throws IOException {
+		
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out)); 
+		
+		int N = Integer.parseInt(br.readLine());
+		
+		String[][] arr = new String[N][2];
+		
+		for(int i = 0 ; i < N ; i++) {
+			StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+			arr[i][0] = st.nextToken();
+			arr[i][1] = st.nextToken();
+		}
+		
+		Arrays.sort(arr, new Comparator<String[]>() {
+
+
+			@Override
+			public int compare(String[] o1, String[] o2) {
+				if(Integer.parseInt(o1[0]) == Integer.parseInt(o2[0])) {//이거 기억. 처음 기준은 나이임. 나이가 같으면 리턴0 -> 그대로냅둬라
+					return 0;
+				}
+				else { //나이가 다르면 나이 오름차순으로 변경해라.
+					return Integer.parseInt(o1[0]) - Integer.parseInt(o2[0]);
+				}
+			}
+			
+		});
+		
+		for(int i = 0 ; i < N ; i++) {
+			bw.write(arr[i][0] + " " + arr[i][1] + "\n");
+		}
+		
+		bw.flush();
+		bw.close();
+		
+	}
+	
+}
