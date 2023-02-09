@@ -34,11 +34,11 @@ class Solution {
         
         //이제 id_list 만큼 for문 순회하며
         for(int i = 0 ; i < id_list.length ; i++){
-            //응애1의 key가 id_list[i]인 해쉬셋 빼와서 (해쉬셋 씨팔) = (id_list[i] 이름을 신고한 놈들)
+            //응애1의 key가 id_list[i]인 해쉬셋 빼와서 (해쉬셋 신고한 나쁜놈) = (id_list[i] 이름을 신고한 놈들)
             HashSet<String> bad_guys = report_map.get(id_list[i]);
             //그 해시셋 크기가 k 이상이다면 (서로 다른 신고한 사람 수가 k명 이상이라면)
             if(bad_guys.size() >= k){
-                //for문으로 (해쉬셋 씨팔) = 응애1.get(id_list[i]) 순회(String s)하며 
+                //for문으로 (해쉬셋 신고한 나쁜놈) = 응애1.get(id_list[i]) 순회(String s)하며 
                 for(String s : bad_guys){
                     //mail[응애2.get(s)]++; (index 를 위해 만든 해시셋 사용하여
                     //신고한 놈들에게 메일 한통씩 보내기)
