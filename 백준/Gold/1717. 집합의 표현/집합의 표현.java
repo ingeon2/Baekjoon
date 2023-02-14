@@ -56,20 +56,8 @@ public class Main {
         a = find(a);
         b = find(b);
 
-        int small_repre = 0;
-        int large_repre = 0;
-
-        if(a > b){
-            large_repre = a;
-            small_repre = b;
-        }
-        else if(a < b){
-            large_repre = b;
-            small_repre = a;
-        }
-        else{
-            return;
-        }
+        int small_repre = Math.min(a, b);
+        int large_repre = Math.max(a, b);
         represent[large_repre] = small_repre;
     }
 
