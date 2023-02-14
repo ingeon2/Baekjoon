@@ -9,6 +9,8 @@ public class Main {
     static int[] dc = {0, 0, -1, 1};
     //BFS에서 for안에서 사용할 N
     static int N;
+    //DFS에서 사용할 result
+    static int result;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -31,7 +33,9 @@ public class Main {
         for(int i = 0 ; i < N ; i++){
             for(int j = 0 ; j < N ; j++){
                 if(map[i][j] == 1 && visited[i][j] == false) {
-                    arr.add(BFS(i, j));
+                    result = 0;
+                    DFS(i, j);
+                    arr.add(result+1);
                 }
             }
         }
@@ -83,6 +87,29 @@ public class Main {
 
         }
         return result;
+    }
+
+    //DFS구현. 리턴값 int 매개변수 세개 r, c, cnt
+    //int result = 0  만들어놓고 if cnt > result 하기
+    //방문기록남기고
+    //이전과 같이 for문의 if 안에 DFS(뉴알 뉴씨 씨엔티+1)
+    static void DFS(int r, int c){
+        visited[r][c] = true;
+        // 인트 리절트 = 0, 리턴값
+
+        for(int i = 0 ; i < 4 ; i++){
+            //뽑은거에 dr[i], dc[i] 더해주고, 그 값이
+            int new_r = r + dr[i];
+            int new_c = c + dc[i];
+            //인덱스에 제한없고(0보다 크고 입력값 N보다 작고) + 만약 방문 안했으면 + 값이 0이 아니라면(못가는곳)
+            if(new_r >= 0 && new_c >= 0 && new_r < N && new_c < N && visited[new_r][new_c] == false && map[new_r][new_c] != 0){
+                //큐에 더해주기, 방문표시해주기
+                visited[new_r][new_c] = true;
+                DFS(new_r, new_c);
+                result++;
+            }
+
+        }
     }
 
 }
