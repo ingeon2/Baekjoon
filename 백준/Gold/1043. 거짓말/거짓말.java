@@ -74,7 +74,7 @@ public class Main {
             }
         }
 
-        //파티 인원들까지 마무리되면, 어레이리스트 돌면서, 걔들 첫번째 잡아서 그친구의 대표노드가 trueperson 인지 보기.
+        //파티 인원들까지 마무리되면, 어레이리스트 돌면서, 걔들 첫번째 잡아서 그친구의 대표노드가 trueperson의 대표노드와 같은지 보기.
         int answer = 0;
         for(int i = 1 ; i <= M ; i++) {
             if(find(A[i].get(0)) != find(trueperson)) answer++;
