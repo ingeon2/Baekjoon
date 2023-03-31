@@ -4,7 +4,7 @@ SELECT A.REST_ID, A.REST_NAME, A.FOOD_TYPE, A.FAVORITES, A.ADDRESS, ROUND(AVG(B.
 -- 식당 ID 를 공유해서
 -- 여기서 핵심은, FROM 과 JOIN 에서 테이블을 지정해주는것
 FROM REST_INFO A
-JOIN REST_REVIEW B ON A.REST_ID = B.REST_ID
+INNER JOIN REST_REVIEW B ON A.REST_ID = B.REST_ID
 -- 리뷰 평균 점수를 조회하려면 뭐에 따라 평균낼건지 골라야지. 그게 식당 ID가 될거고 그걸로 그룹바이 해야겠다.
 GROUP BY A.REST_ID
 -- 서울에 위치한 (= 말고 LIKE 써야한다)
