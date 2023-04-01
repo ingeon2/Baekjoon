@@ -1,0 +1,9 @@
+-- 매출액(판매가 * 판매량) 합계를 출력 섬(곱)
+SELECT A.PRODUCT_CODE, SUM(A.PRICE * B.SALES_AMOUNT) AS "SALES"
+-- 이너쪼인
+FROM PRODUCT A
+INNER JOIN OFFLINE_SALE B ON A.PRODUCT_ID = B.PRODUCT_ID
+-- 상품코드 별 (그룹바이)
+GROUP BY A.PRODUCT_CODE
+-- 매출액을 기준으로 내림차순 정렬, 상품코드를 기준으로 오름차순 정렬
+ORDER BY SALES DESC, PRODUCT_CODE;
