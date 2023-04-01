@@ -1,0 +1,9 @@
+-- 도서 ID(BOOK_ID), 저자명(AUTHOR_NAME), 출판일(PUBLISHED_DATE)
+SELECT A.BOOK_ID, B.AUTHOR_NAME, DATE_FORMAT(A.PUBLISHED_DATE, "%Y-%m-%d") AS PUBLISHED_DATE
+-- 프럼, 이너조인은 도서아이디 A 나머지 B로 하자
+FROM BOOK A
+INNER JOIN AUTHOR B ON A.AUTHOR_ID = B.AUTHOR_ID
+-- '경제' 카테고리에 속하는 도서 (웨어)
+WHERE A.CATEGORY = "경제"
+-- 출판일을 기준으로 오름차순 
+ORDER BY A.PUBLISHED_DATE;
