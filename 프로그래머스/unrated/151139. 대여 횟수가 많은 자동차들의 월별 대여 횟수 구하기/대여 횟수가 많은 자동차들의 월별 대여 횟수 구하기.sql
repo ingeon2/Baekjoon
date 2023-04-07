@@ -15,4 +15,3 @@ HAVING RECORDS > 0
 
 -- 월을 기준으로 오름차순 정렬하고, 월이 같다면 자동차 ID를 기준으로 내림차순 정렬
 ORDER BY MONTH, CAR_ID DESC;
-
