@@ -2,7 +2,7 @@
 SELECT CATEGORY, PRICE AS "MAX_PRICE", PRODUCT_NAME
 FROM FOOD_PRODUCT
 -- 식품분류별로 가격이 제일 비싼 식품, 식품분류가 '과자', '국', '김치', '식용유'인 경우만 출력
-WHERE PRICE IN (SELECT MAX(PRICE)
+WHERE (CATEGORY, PRICE) IN (SELECT CATEGORY, MAX(PRICE)
                FROM FOOD_PRODUCT
                GROUP BY CATEGORY)
                AND CATEGORY IN ("과자", "국", "김치", "식용유")
