@@ -26,12 +26,12 @@ public class Main {
 
     static void hanoi(int heigth, int start, int mid, int end) throws IOException{
         if(heigth == 1) {
-            bw.write(String.valueOf(start) + " " + String.valueOf(end) +"\n");
+            bw.write(start + " " + end +"\n");
             return;
         }
 
         hanoi(heigth-1, start, end, mid);
-        bw.write(String.valueOf(start) + " " + String.valueOf(end) +"\n");
+        bw.write(start + " " + end +"\n");
         hanoi(heigth-1, mid, start, end);
 
 
