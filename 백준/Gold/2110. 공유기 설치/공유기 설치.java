@@ -45,7 +45,6 @@ public class Main {
             if(arr[b] - arr[a] < length) b++;
             else {
                 a = b;
-                b++;
                 answer++;
             }
         }
