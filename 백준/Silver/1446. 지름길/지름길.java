@@ -36,7 +36,7 @@ public class Main {
             if(hasShortcut[i]) { // i가 끝점인 지름길이 있다면
                 for(int[] arr : shortcut.get(i)) { //i를 끝점으로 하는 지름길들 순회하며
                     if(D[arr[0]] + arr[1] < D[i]) {
-                        D[i] = Math.min(D[i], D[arr[0]] + arr[1]); // D[i]가 작아지는 값으로 계속해서 바뀌며 최솟값을 갱신해준다
+                        D[i] = D[arr[0]] + arr[1]; // D[i]가 작아지는 값으로 계속해서 바뀌며 최솟값을 갱신해준다
                     }
                     
                 }
