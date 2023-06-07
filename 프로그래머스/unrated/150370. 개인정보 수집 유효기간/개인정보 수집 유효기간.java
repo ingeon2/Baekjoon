@@ -10,7 +10,7 @@ class Solution {
         //privacies 순회하면서 숫자 넣어줘야겠는데
         String answer = "";
         
-        //이제 today 배열로 만들어주고, 나중에 for문에서 각각 privacy 배열0 1 2 + (policy * 30) 빼줄거.
+        //이제 today 배열로 만들어주고, 나중에 for문에서 각각 privacy 배열0 1 2 + (policy * 28) 빼줄거.
         String[] today_arr = today.split("[.]");
         //빼주고 
         int year = (Integer.parseInt(today_arr[0])) * 336;
