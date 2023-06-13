@@ -43,13 +43,13 @@ public class Main {
             if(now.index == K) {
                 //원하는 index까지 오면 적어주고 끝내기
                 bw.write(String.valueOf(now.rate));
-                bw.flush();
-                bw.close();
                 break;
+
             }
         }
 
-
+        bw.flush();
+        bw.close();
 
 
     }
