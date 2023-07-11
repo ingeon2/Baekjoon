@@ -80,19 +80,22 @@ public class Main {
 
             if(curNum == end) return curCnt;
 
-            //뽑은 역의 호선들
-            for(int nextLine : A[curNum]) {
-                if(!visited[N+nextLine]) {
-                    visited[N+nextLine] = true;
-                    q.add(new Station(curNum, nextLine, curCnt+1));
-                }
-            }
+
 
             //현재 호선의 다른역들
             for(int nextNum : B[curLine]) {
                 if(!visited[nextNum]) {
                     visited[nextNum] = true;
                     q.add(new Station(nextNum, curLine,  curCnt));
+
+                    //뽑은 역의 호선들
+                    for(int nextLine : A[nextNum]) {
+                        if(!visited[N+nextLine]) {
+                            visited[N+nextLine] = true;
+                            q.add(new Station(nextNum, nextLine, curCnt+1));
+                        }
+                    }
+
                 }
             }
         }
