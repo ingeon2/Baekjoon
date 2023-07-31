@@ -21,21 +21,26 @@ public class Main {
         for(int i = 0 ; i < N ; i++) {
             arr[i] = Integer.parseInt(br.readLine());
         }
+
         Arrays.sort(arr);
         int answer = arr[N-1] - arr[0];
 
-        while(e < N) {
-            while(e < N && arr[e] - arr[s] < M) {
-                e++;
-            }
-            if(e >= N) break;
+        while(true) {
+            int minus = arr[e] - arr[s];
 
-            if(arr[e] - arr[s] == M) {
+            if(minus >= M) {
+                answer = Math.min(answer, minus);
+                s++;
+            }
+            else if(minus == M){
                 answer = M;
                 break;
             }
-            answer = Math.min(answer, arr[e] - arr[s]);
-            s++;
+            else {
+                e++;
+            }
+
+            if(s >= N || e >= N) break;
         }
 
         bw.write(String.valueOf(answer));
