@@ -19,8 +19,8 @@ public class Main {
 
         int s = 0;
         int e = N-1;
-        int as = 0;
-        int ae = 0;
+        int as = s;
+        int ae = e;
         long min = Long.MAX_VALUE;
 
         while(s < e) {
