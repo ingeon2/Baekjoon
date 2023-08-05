@@ -33,12 +33,12 @@ public class Main {
         }
 
         for(int i = start ; i <= N ; i++) {
-            if(visited[i] == true) continue;
+            //if(visited[i] == true) continue;
 
-            visited[i] = true;
+            //visited[i] = true;
             answer[depth] = i;
             backtracking(N, M,i+1, depth+1);
-            visited[i] = false;
+            //visited[i] = false;
         }
     }
 
