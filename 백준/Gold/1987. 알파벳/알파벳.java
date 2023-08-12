@@ -39,6 +39,8 @@ public class Main {
     }
     
     static void backTracking(int r, int c) {
+        
+        max = Math.max(answer, max);
 
         for(int i = 0 ; i < 4 ; i++) {
             int nr = r + dr[i];
@@ -53,7 +55,7 @@ public class Main {
             }
         }
 
-        max = Math.max(answer, max);
+        
     }
 
     static boolean isValid(int r, int c) {
