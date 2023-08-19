@@ -65,7 +65,7 @@ public class Main {
 
                 if(!isValid(nr, nc)) continue;
 
-                for(int j = 0 ; j < 7 ; j++) {
+                for(int j = 1 ; j < 7 ; j++) {
                     if(!visited[j] && selected[j] == ni) {
                         q.add(new int[] {nr, nc});
                         visited[j] = true;
