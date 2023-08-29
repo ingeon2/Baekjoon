@@ -20,6 +20,7 @@ class Solution {
                 for(int c = 0 ; c < 5 ; c++) {
                     if(room[r][c] == 'P') {
                         visited = new boolean[5][5];
+                        visited[r][c] = true;
                         backTracking(0, r, c);
                     }
                     
@@ -35,29 +36,27 @@ class Solution {
         return answer;
     }
     
-    
     static void backTracking(int depth, int r, int c) {
+        
+        if(depth == 1 || depth == 2) {
+            if(room[r][c] == 'P') {
+                a = true;
+                return;
+            }
+        }
         
         if(depth == 2) return;
         
-        visited[r][c] = true;
         
         for(int i = 0 ; i < 4 ; i++) {
             int nr = r + dr[i];
             int nc = c + dc[i];
             
-            if(nr < 0 || nr >= 5 || nc < 0 || nc >= 5 || visited[nr][nc]) continue;
+            if(nr < 0 || nr >= 5 || nc < 0 || nc >= 5 || room[nr][nc] == 'X') continue;
             
-            
-            if(room[nr][nc] == 'P') {
-                a = true;
-                return;
-            }
-            else if(room[nr][nc] == 'O') {
+            if(!visited[nr][nc]) {
+                visited[nr][nc] = true;
                 backTracking(depth+1, nr, nc);
-            }
-            else {
-                continue;
             }
             
         }
