@@ -37,28 +37,23 @@ class Solution {
     }
     
     static void backTracking(int depth, int r, int c) {
-        
-        if(depth == 1 || depth == 2) {
-            if(room[r][c] == 'P') {
-                a = true;
-                return;
-            }
-        }
-        
         if(depth == 2) return;
-        
         
         for(int i = 0 ; i < 4 ; i++) {
             int nr = r + dr[i];
             int nc = c + dc[i];
             
-            if(nr < 0 || nr >= 5 || nc < 0 || nc >= 5 || room[nr][nc] == 'X') continue;
+            if(nr < 0 || nr >= 5 || nc < 0 || nc >= 5) continue; //index검사
+            if(visited[nr][nc]) continue; //방문검사
+            if(room[nr][nc] == 'X') continue; //못갈곳 검사
             
-            if(!visited[nr][nc]) {
-                visited[nr][nc] = true;
-                backTracking(depth+1, nr, nc);
+            if(room[nr][nc] == 'P') { //거리두기 못지킨경우
+                a = true;
+                return;
             }
             
+            visited[nr][nc] = true;
+            backTracking(depth+1, nr, nc);
         }
     }
 }
