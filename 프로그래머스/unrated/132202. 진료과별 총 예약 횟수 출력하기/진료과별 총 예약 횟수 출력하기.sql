@@ -1,5 +1,5 @@
 -- 진료과코드 별로 조회하는 SQL문을 작성해주세요. 이때, 컬럼명은 '진료과 코드', '5월예약건수'로 지정
-SELECT MCDP_CD AS "진료과 코드", COUNT(APNT_NO) AS "5월예약건수"
+SELECT MCDP_CD AS "진료과 코드", COUNT(PT_NO) AS "5월예약건수"
 -- APPOINTMENT 테이블에서
 FROM APPOINTMENT
 -- 2022년 5월에
