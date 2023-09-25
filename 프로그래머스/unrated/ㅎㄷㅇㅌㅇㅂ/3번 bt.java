@@ -48,23 +48,23 @@ public class Main {
     static void bt(int d, int cnt) {
 
         if(d == 3) {
-            answer = Math.min(answer, cnt);
+            answer = Math.min(answer, cnt); //깊이 끝까지 도달하면 최솟값 로직
             return;
         }
 
 
         for(int i = 0 ; i < arr.get(selected[d]).size() ; i++) {
-            int fr = arr.get(selected[d]).get(i)[0];
+            int fr = arr.get(selected[d]).get(i)[0]; //각각 0, 1, 2가 끼워진 selected에서 i번째를 잡고 해당 점을 목표로 가기
             int fc = arr.get(selected[d]).get(i)[1];
 
 
-            int dist = bfs(fr, fc);
+            int dist = bfs(fr, fc); //해당 점까지의 거리, -1나오면 거기까지는 갈 수 없는것
 
             if(dist != -1) {
                 char tmp = map[fr][fc];
-                map[fr][fc] = 'X';
+                map[fr][fc] = 'X'; //도달 후 들어가기 전에 이제 해당 점 못들어가니까 X로 표시해주기
                 bt(d+1, cnt + dist);
-                map[fr][fc] = tmp;
+                map[fr][fc] = tmp; //다시 원상복구해주기
             }
 
         }
@@ -77,36 +77,7 @@ public class Main {
         q.add(new int[] {0, 0, 0});
         v1[0][0] = true;
         
-        while(!q.isEmpty()) {
-            int[] cur = q.poll();
-            int r = cur[0];
-            int c = cur[1];
-            int cnt = cur[2];
-
-            if(r == fr && c == fc) return cur[2];
-            
-            for(int i = 0 ; i < 4 ; i++) {
-                int nr = r + dr[i];
-                int nc = c + dc[i];
-                
-                if(isValid(nr, nc)) {
-                    v1[nr][nc] = true;
-                    q.add(new int[] {nr, nc, cnt+1});
-                }
-                
-                
-            }
-        }
-        
-        return -1;
-    }
-
-
-
-
-    static void bt1(int d) {
-        if(d == 3) {
-            bt(0, 0);
+        while(!q.isEmpty(기
             return;
         }
 
