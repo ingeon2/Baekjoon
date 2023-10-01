@@ -29,19 +29,20 @@ class Solution {
             set.add(now);
             return;
         }
-        
-        
-        if(now > 1) {
+        else {
             set.add(now);
         }
+        
+        
+        
         
         
         for(int i = 0 ; i < nums.length ; i++) {
             if(visited[i]) continue;
             
             visited[i] = true;
-            int next =  (now * 10) + (nums[i] - '0');
-            backTracking(depth+1, nums, next);
+            //int next =  (now * 10) + (nums[i] - '0');
+            backTracking(depth+1, nums, (now * 10) + (nums[i] - '0'));
             visited[i] = false;
         }
     }
