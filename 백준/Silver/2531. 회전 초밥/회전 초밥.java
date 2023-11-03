@@ -58,7 +58,8 @@ public class Main {
             if(how_many[rotationSushi[start]] == 0) answer--;
 
             //end index 더해주고, 하우매니가 1이면 하나뿐인거니 종류 하나 더해주기, 단 index 크기 설정해야함
-            int end = (start + k) % N; //회전초밥은 끝과 처음이 연결되어있으니.
+            int end = (start + k); //회전초밥은 끝과 처음이 연결되어있으니.
+            if(end >= N) end = end-N;
             how_many[rotationSushi[end]]++;
             if(how_many[rotationSushi[end]] == 1) answer++;
 
